@@ -32,7 +32,7 @@ void setup(void)
   digitalWrite(GreenPin, LOW);
 
   // Initialize ADXL345
-  Serial.println("Initialize L3G4200D");
+  Serial.println("Initialize ADXL345");
 
   if (!accelerometer.begin())
   {
