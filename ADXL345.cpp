@@ -500,9 +500,9 @@ uint8_t ADXL345::readRegister8(uint8_t reg)
 }
 
 // Read word from register
-int16_t ADXL345::readRegister16(uint8_t reg)
+uint16_t ADXL345::readRegister16(uint8_t reg)
 {
-    int16_t value;
+    uint16_t value;
     Wire.beginTransmission(ADXL345_ADDRESS);
     #if ARDUINO >= 100
         Wire.write(reg);
