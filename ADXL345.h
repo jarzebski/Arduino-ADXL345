@@ -18,8 +18,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef L3G4200D_h
-#define L3G4200D_h
+#ifndef ADXL345_h
+#define ADXL345_h
 
 #if ARDUINO >= 100
 #include "Arduino.h"
