@@ -61,5 +61,5 @@ void loop(void)
   Serial.print(froll);
   Serial.println();
 
-  delay(200);
+  delay(100);
 }
