@@ -1,5 +1,5 @@
 /*
-ADXL345.cpp - Class file for the L3G4200D Triple Axis Accelerometer Arduino Library.
+ADXL345.cpp - Class file for the ADXL345 Triple Axis Accelerometer Arduino Library.
 
 Version: 1.0.0
 (c) 2014 Korneliusz Jarzebski
@@ -36,7 +36,7 @@ bool ADXL345::begin()
 
     Wire.begin();
 
-    // Check ADXL34 REG DEVID
+    // Check ADXL345 REG DEVID
     if (fastRegister8(ADXL345_REG_DEVID) != 0xE5)
     {
         return false;
@@ -550,4 +550,3 @@ bool ADXL345::readRegisterBit(uint8_t reg, uint8_t pos)
     value = readRegister8(reg);
     return ((value >> pos) & 1);
 }
-
