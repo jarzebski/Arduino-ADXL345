@@ -38,7 +38,7 @@ void loop(void)
   Vector norm = accelerometer.readNormalize();
 
   // Low Pass Filter to smooth out data. 0.1 - 0.9
-  Vector filtered = accelerometer.lowPassFilter(norm, 0.15);
+  Vector filtered = accelerometer.lowPassFilter(norm, 0.5);
 
   // Calculate Pitch & Roll
   int pitch = -(atan2(norm.XAxis, sqrt(norm.YAxis*norm.YAxis + norm.ZAxis*norm.ZAxis))*180.0)/M_PI;
