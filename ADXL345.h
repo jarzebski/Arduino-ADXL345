@@ -1,7 +1,7 @@
 /*
 ADXL345.h - Header file for the ADXL345 Triple Axis Accelerometer Arduino Library.
 
-Version: 1.0.0
+Version: 1.0.1
 (c) 2014 Korneliusz Jarzebski
 www.jarzebski.pl
 
