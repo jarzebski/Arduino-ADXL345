@@ -1,7 +1,7 @@
 /*
 ADXL345.h - Header file for the ADXL345 Triple Axis Accelerometer Arduino Library.
 
-Version: 1.0.1
+Version: 1.0.2
 (c) 2014 Korneliusz Jarzebski
 www.jarzebski.pl
 
@@ -77,13 +77,13 @@ typedef enum
     ADXL345_DATARATE_0_39HZ    = 0b0010,
     ADXL345_DATARATE_0_20HZ    = 0b0001,
     ADXL345_DATARATE_0_10HZ    = 0b0000
-} dataRate_t;
+} adxl345_dataRate_t;
 
 typedef enum
 {
     ADXL345_INT2 = 0b01,
     ADXL345_INT1 = 0b00
-} int_t;
+} adxl345_int_t;
 
 typedef enum
 {
@@ -95,7 +95,7 @@ typedef enum
     ADXL345_FREE_FALL          = 0x02,
     ADXL345_WATERMARK          = 0x01,
     ADXL345_OVERRUN            = 0x00
-} activity_t;
+} adxl345_activity_t;
 
 typedef enum
 {
@@ -103,14 +103,17 @@ typedef enum
     ADXL345_RANGE_8G           = 0b10,
     ADXL345_RANGE_4G           = 0b01,
     ADXL345_RANGE_2G           = 0b00
-} range_t;
+} adxl345_range_t;
 
+#ifndef VECTOR_STRUCT_H
+#define VECTOR_STRUCT_H
 struct Vector
 {
     float XAxis;
     float YAxis;
     float ZAxis;
 };
+#endif
 
 struct Activites
 {
@@ -133,6 +136,7 @@ struct Activites
 class ADXL345
 {
     public:
+
 	bool begin(void);
 	void clearSettings(void);
 
@@ -143,11 +147,11 @@ class ADXL345
 
 	Vector lowPassFilter(Vector vector, float alpha = 0.5);
 
-	void  setRange(range_t range);
-	range_t getRange(void);
+	void  setRange(adxl345_range_t range);
+	adxl345_range_t getRange(void);
 
-	void  setDataRate(dataRate_t dataRate);
-	dataRate_t getDataRate(void);
+	void  setDataRate(adxl345_dataRate_t dataRate);
+	adxl345_dataRate_t getDataRate(void);
 
 	void setTapThreshold(float threshold);
 	float getTapThreshold(void);
@@ -200,14 +204,15 @@ class ADXL345
 	bool getTapDetectionZ(void);
 	void setTapDetectionXYZ(bool state);
 
-	void useInterrupt(int_t interrupt);
+	void useInterrupt(adxl345_int_t interrupt);
+
 
     private:
 	Vector r;
 	Vector n;
 	Vector f;
 	Activites a;
-	range_t _range;
+	adxl345_range_t _range;
 
 	void writeRegister8(uint8_t reg, uint8_t value);
 	uint8_t readRegister8(uint8_t reg);
@@ -215,6 +220,8 @@ class ADXL345
 	int16_t readRegister16(uint8_t reg);
 	void writeRegisterBit(uint8_t reg, uint8_t pos, bool state);
 	bool readRegisterBit(uint8_t reg, uint8_t pos);
+
+
 };
 
 #endif

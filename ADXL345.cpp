@@ -1,7 +1,7 @@
 /*
 ADXL345.cpp - Class file for the ADXL345 Triple Axis Accelerometer Arduino Library.
 
-Version: 1.0.1
+Version: 1.0.2
 (c) 2014 Korneliusz Jarzebski
 www.jarzebski.pl
 
@@ -51,7 +51,7 @@ bool ADXL345::begin()
 }
 
 // Set Range
-void ADXL345::setRange(range_t range)
+void ADXL345::setRange(adxl345_range_t range)
 {
   // Get actual value register
   uint8_t value = readRegister8(ADXL345_REG_DATA_FORMAT);
@@ -68,21 +68,21 @@ void ADXL345::setRange(range_t range)
 }
 
 // Get Range
-range_t ADXL345::getRange(void)
+adxl345_range_t ADXL345::getRange(void)
 {
-    return (range_t)(readRegister8(ADXL345_REG_DATA_FORMAT) & 0x03);
+    return (adxl345_range_t)(readRegister8(ADXL345_REG_DATA_FORMAT) & 0x03);
 }
 
 // Set Data Rate
-void ADXL345::setDataRate(dataRate_t dataRate)
+void ADXL345::setDataRate(adxl345_dataRate_t dataRate)
 {
     writeRegister8(ADXL345_REG_BW_RATE, dataRate);
 }
 
 // Get Data Rate
-dataRate_t ADXL345::getDataRate(void)
+adxl345_dataRate_t ADXL345::getDataRate(void)
 {
-    return (dataRate_t)(readRegister8(ADXL345_REG_BW_RATE) & 0x0F);
+    return (adxl345_dataRate_t)(readRegister8(ADXL345_REG_BW_RATE) & 0x0F);
 }
 
 // Low Pass Filter
@@ -399,7 +399,7 @@ void ADXL345::setTapDetectionXYZ(bool state)
 }
 
 
-void ADXL345::useInterrupt(int_t interrupt)
+void ADXL345::useInterrupt(adxl345_int_t interrupt)
 {
     if (interrupt == 0)
     {
