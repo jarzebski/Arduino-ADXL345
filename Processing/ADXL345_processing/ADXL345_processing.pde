@@ -345,8 +345,8 @@ void draw()
 
   background(0);
 
-  drawChart("Pitch (Normal vs Filtered)", compareSeries, pitchValues, 10, 10, 200, true, true, -90, 90, 30);
-  drawChart("Roll  (Normal vs Filtered)", compareSeries, rollValues, 10, 280, 200, true, true, -90, 90, 30);
+  drawChart("Pitch [deg]", compareSeries, pitchValues, 10, 10, 200, true, true, -90, 90, 30);
+  drawChart("Roll [deg]", compareSeries, rollValues, 10, 280, 200, true, true, -90, 90, 30);
 
   drawArtificialHorizon(480, 20, pyrValues);
   drawArtificialHorizon(480, 290, pyrValuesFiltered);
