@@ -1,7 +1,7 @@
 /*
 ADXL345.cpp - Class file for the ADXL345 Triple Axis Accelerometer Arduino Library.
 
-Version: 1.0.2
+Version: 1.1.0
 (c) 2014 Korneliusz Jarzebski
 www.jarzebski.pl
 
@@ -104,13 +104,15 @@ Vector ADXL345::readRaw(void)
 }
 
 // Read normalized values
-Vector ADXL345::readNormalize(void)
+Vector ADXL345::readNormalize(float gravityFactor)
 {
     readRaw();
-    // (4 mg/LSB scale factor in Full Res) * Earth gravity
-    n.XAxis = r.XAxis * 0.004 * 9.80665f;
-    n.YAxis = r.YAxis * 0.004 * 9.80665f;
-    n.ZAxis = r.ZAxis * 0.004 * 9.80665f;
+
+    // (4 mg/LSB scale factor in Full Res) * gravity factor
+    n.XAxis = r.XAxis * 0.004 * gravityFactor;
+    n.YAxis = r.YAxis * 0.004 * gravityFactor;
+    n.ZAxis = r.ZAxis * 0.004 * gravityFactor;
+
     return n;
 }
 

@@ -1,7 +1,7 @@
 /*
 ADXL345.h - Header file for the ADXL345 Triple Axis Accelerometer Arduino Library.
 
-Version: 1.0.2
+Version: 1.1.0
 (c) 2014 Korneliusz Jarzebski
 www.jarzebski.pl
 
@@ -58,6 +58,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ADXL345_REG_DATAZ1           (0x37)
 #define ADXL345_REG_FIFO_CTL         (0x38)
 #define ADXL345_REG_FIFO_STATUS      (0x39)
+
+#define ADXL345_GRAVITY_SUN          273.95f
+#define ADXL345_GRAVITY_EARTH        9.80665f
+#define ADXL345_GRAVITY_MOON         1.622f
+#define ADXL345_GRAVITY_MARS         3.69f
+#define ADXL345_GRAVITY_NONE         1.00f
 
 typedef enum
 {
@@ -141,7 +147,7 @@ class ADXL345
 	void clearSettings(void);
 
 	Vector readRaw(void);
-	Vector readNormalize(void);
+	Vector readNormalize(float gravityFactor = ADXL345_GRAVITY_EARTH);
 
 	Activites readActivites(void);
 
