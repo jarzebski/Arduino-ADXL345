@@ -116,6 +116,19 @@ Vector ADXL345::readNormalize(float gravityFactor)
     return n;
 }
 
+// Read scaled values
+Vector ADXL345::readScaled(void)
+{
+    readRaw();
+
+    // (4 mg/LSB scale factor in Full Res)
+    n.XAxis = r.XAxis * 0.004;
+    n.YAxis = r.YAxis * 0.004;
+    n.ZAxis = r.ZAxis * 0.004;
+
+    return n;
+}
+
 void ADXL345::clearSettings(void)
 {
     setRange(ADXL345_RANGE_2G);

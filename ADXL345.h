@@ -148,6 +148,7 @@ class ADXL345
 
 	Vector readRaw(void);
 	Vector readNormalize(float gravityFactor = ADXL345_GRAVITY_EARTH);
+	Vector readScaled(void);
 
 	Activites readActivites(void);
 
