@@ -1,0 +1,16 @@
+{
+  "name": "Arduino-ADXL345",
+  "keywords": "ADXL345, sensor, accelerometer, i2c, wire",
+  "description": "Arduino library for ADXL345 accelerometer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jarzebski/Arduino-ADXL345"
+  },
+  "authors": {
+    "name": "Korneliusz Jarzębski",
+    "url": "http://www.jarzebski.pl/"
+  },
+  "version": "1.0.0",
+  "frameworks": "arduino",
+  "platforms": "*"
+}
